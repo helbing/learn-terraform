@@ -1,18 +1,13 @@
 provider "aws" {
 }
 
-locals {
-  vpc_id = aws_vpc.this.id
-}
+module "simple_vpc" {
+  source = "./modules/simple_vpc"
 
-resource "aws_vpc" "this" {
-  cidr_block = var.cidr
-  tags = merge(
-    { "Name" = var.name },
-    var.tags,
-  )
-}
-
-resource "aws_subnet" "this" {
-  vpc_id = local.vpc_id
+  name           = var.name
+  cidr           = var.cidr
+  tags           = var.tags
+  subnet_enabled = var.subnet_enabled
+  subnet_cidr    = var.subnet_cidr
+  subnet_az      = var.subnet_az
 }

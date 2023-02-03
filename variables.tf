@@ -1,5 +1,5 @@
 variable "name" {
-  description = "Name of VPC"
+  description = "(Optional) Name of VPC"
   type        = string
   default     = ""
 }
@@ -11,9 +11,14 @@ variable "cidr" {
 }
 
 variable "tags" {
-  description = "VPC tags"
+  description = "(Optional) VPC tags"
   type        = map(string)
   default     = {}
+
+  validation {
+    condition     = length(var.tags) <= 10
+    error_message = "Length of tags must less than 10"
+  }
 }
 
 variable "subnet_enabled" {
@@ -31,5 +36,10 @@ variable "subnet_cidr" {
 variable "subnet_az" {
   description = "(Optional) Availability zone for the subnet"
   type        = string
-  default     = ""
+  default     = "ap-northeast-1a"
+
+  validation {
+    condition     = startswith(var.subnet_az, "ap-")
+    error_message = "Subnet AZ must in Asia Pacific"
+  }
 }

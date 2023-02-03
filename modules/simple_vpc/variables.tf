@@ -16,7 +16,7 @@ variable "tags" {
   default     = {}
 
   validation {
-    condition     = length(var.tags) > 10
+    condition     = length(var.tags) <= 10
     error_message = "Length of tags must less than 10"
   }
 }
@@ -36,7 +36,7 @@ variable "subnet_cidr" {
 variable "subnet_az" {
   description = "(Optional) Availability zone for the subnet"
   type        = string
-  default     = ""
+  default     = "ap-northeast-1a"
 
   validation {
     condition     = startswith(var.subnet_az, "ap-")

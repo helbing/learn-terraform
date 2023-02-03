@@ -1,9 +1,10 @@
+
 output "vpc_id" {
   description = "VPC ID"
-  value       = aws_vpc.this.id
+  value       = module.simple_vpc.vpc_id
 }
 
 output "arn" {
   description = "ARN"
-  value       = aws_vpc.this.arn
+  value       = module.simple_vpc.arn
 }
