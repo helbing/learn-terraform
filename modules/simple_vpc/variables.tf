@@ -17,7 +17,7 @@ variable "tags" {
 
   validation {
     condition     = length(var.tags) <= 10
-    error_message = "Length of tags must less than 10"
+    error_message = "Length of tags must less than 10."
   }
 }
 
@@ -40,6 +40,6 @@ variable "subnet_az" {
 
   validation {
     condition     = startswith(var.subnet_az, "ap-")
-    error_message = "Subnet AZ must in Asia Pacific"
+    error_message = "Subnet AZ must in Asia Pacific."
   }
 }
