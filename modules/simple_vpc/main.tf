@@ -2,6 +2,9 @@ locals {
   // VPC ID
   vpc_id = aws_vpc.this.id
 
+  // VPC name
+  name = aws_vpc.this.tags["Name"]
+
   // Merge tags
   all_tags = merge(
     { Name = var.name },
@@ -23,3 +26,4 @@ resource "aws_subnet" "this" {
   cidr_block        = var.subnet_cidr
   availability_zone = var.subnet_az
 }
+

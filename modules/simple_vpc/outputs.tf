@@ -3,6 +3,11 @@ output "vpc_id" {
   value       = aws_vpc.this.id
 }
 
+output "name" {
+  description = "VPC name"
+  value       = local.name
+}
+
 output "arn" {
   description = "ARN"
   value       = aws_vpc.this.arn
