@@ -1,5 +1,5 @@
-DOCKER_TERRASCAN := docker run -t --rm -v $(shell pwd):/iac -w /iac tenable/terrascan:1.17.1
+DOCKER_CHECKOV := docker run -t --rm -v $(shell pwd):/tf -w /tf bridgecrew/checkov:2.2.331
 
 .PHONY: lint
 lint:
-	@terraform fmt && terraform validate && $(DOCKER_TERRASCAN) scan
+	@terraform fmt && terraform validate

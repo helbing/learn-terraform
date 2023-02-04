@@ -6,4 +6,4 @@ repos:
   - id: lint
     name: lint
     entry: make lint
-    language: script
+    language: system
