@@ -10,6 +10,7 @@ This is an example of I learn terraform.
 - [Pre-commit](https://pre-commit.com/)
 - [Go](https://go.dev/)
 - [Terratest](https://terratest.gruntwork.io/)
+- [Terraform-docs](https://terraform-docs.io/)
 
 ## Usage
 
